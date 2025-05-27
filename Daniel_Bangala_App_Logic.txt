@@ -1,0 +1,47 @@
+a) Adding a Habit
+
+Function onSaveButtonClick():
+    if habitName is not empty:
+        habit = {
+            name: habitName,
+            date: getCurrentDate(),	//store current date
+            completed: false		//habit starts as not completed
+        }
+        save(habit)
+
+Function save(habit):
+      habitsList.append(habit)
+
+
+b) Mark as Done
+
+Function onMarkAsDoneButtonClick(habit):
+    for each h in habitsList:
+        if h.name == habit.name and h.date == getCurrentDate():	//if we find the habit
+            h.completed = true					//we mark it as completed
+
+
+c)Daily Progress:
+
+Function getDailyProgress():
+    today = getCurrentDate()
+    totalHabits = 0                 			//counter for all habits from today
+    completedToday = 0              			//counter for completed habits today
+
+    for each habit in habitsList:
+        if habit.date == today:
+            totalHabits += 1
+            if habit.completed == true:
+                completedToday += 1
+
+    if totalHabits == 0:
+        progress = 0                			//avoid division by 0
+    else:
+        progress = completedToday / totalHabits  	//calculate progress as a ratio
+
+    return {
+        completedToday: completedToday,
+        totalHabits: totalHabits,
+        progress: progress
+    }
+
