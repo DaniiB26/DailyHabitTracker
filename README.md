@@ -1,5 +1,6 @@
 # README – Daily Habit Tracker
 Author: Daniel Bangălă
+
 Assignment: Graffino Internship – Home Assignment
 
 ## What is this?
